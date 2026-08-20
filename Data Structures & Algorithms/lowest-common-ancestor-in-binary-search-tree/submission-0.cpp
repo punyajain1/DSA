@@ -1,0 +1,30 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(!root) return NULL;
+        if(root==p || root==q) return root;
+        if(p->val < root->val && q->val <root->val){
+            //if less move to left as it is bst then all left will be smaller
+            return lowestCommonAncestor(root->left,p,q);
+        }
+        if(p->val > root->val && q->val > root->val){
+            //if root < p,q move root to right
+            return lowestCommonAncestor(root->right,p,q);
+        }
+        // if one is small and one is greate then return the root
+        
+        return root;
+    }
+};
