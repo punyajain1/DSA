@@ -4,7 +4,7 @@ public:
         vector<vector<int>> ans;
         priority_queue<pair<int, vector<int>>> pq;
         for (auto p:points){
-            int d=(p[0]*p[0] + p[1]*p[1]);
+            int d=(pow(p[0],2) + pow(p[1],2));
             pq.push({d, p});
             if (pq.size()>k){
                 pq.pop();
