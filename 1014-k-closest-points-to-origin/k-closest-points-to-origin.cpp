@@ -6,16 +6,13 @@ public:
         for (auto p:points){
             int d=(p[0]*p[0] + p[1]*p[1]);
             pq.push({d, p});
-
             if (pq.size()>k){
                 pq.pop();
             }
         }
-        int n=pq.size();
-        while(n>0){
+        while(!pq.empty()){
             ans.push_back(pq.top().second);
             pq.pop();
-            n--;
         }
         return ans;
     }
