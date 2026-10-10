@@ -4,11 +4,15 @@ public:
         int n=matrix.size();
         int m=matrix[0].size();
 
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-                if(matrix[i][j]==target){
-                    return true;
-                }
+        int a=0,b=m-1;
+        while(a<n && b>=0){
+            int ele=matrix[a][b];
+            if(ele==target) return true;
+            if(ele>target){
+                b--;
+            }
+            else{
+                a++;
             }
         }
         return false;
